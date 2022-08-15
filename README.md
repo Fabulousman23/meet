@@ -23,3 +23,10 @@
      
   User story:  I should be able to filter events list by event number or location
     
+
+## Feature: Data Visualization 
+
+  Scenario 1: user sees a pie-chart and a bar-chart by default
+     Given that the main page is opened, and user sees a list of collapsed event detail
+     
+  User story:  I should be able to view data visually
