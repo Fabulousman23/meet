@@ -21,5 +21,5 @@
   Scenario 2: user can specify number of events
     Given that user types an integer value to see the desired number of events 
      
-     User story:  I should be able to filter events list by event number or location
+  User story:  I should be able to filter events list by event number or location
     
