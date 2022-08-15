@@ -11,6 +11,7 @@
   Scenario 3: user can collapse an event to hide event details
      Given that user already clicked on hide button to collapse event detail
      
+  User story:  I should beable to click to show or hide events details
 
 ## Feature: Filter events 
 
@@ -20,4 +21,5 @@
   Scenario 2: user can specify number of events
     Given that user types an integer value to see the desired number of events 
      
+     User story:  I should be able to filter events list by event number or location
     
