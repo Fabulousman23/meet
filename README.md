@@ -2,13 +2,13 @@
 
 ## Feature: Show/Hide event details
 
-  Scenario 1: An event element is collapsed by default
+  Scenario 1: An event element is collapsed by default \
       Given the user hasn't selected an event \
       When the user views the list of events \
-      Then the event elements are collapsed \
+      Then the event elements are collapsed 
    
   Scenario 2: user can expand an event to see more details
-     Given that user already clicked on show button to reveal event details
+     Given that user already clicked on show button to reveal event details 
      
   Scenario 3: user can collapse an event to hide event details
      Given that user already clicked on hide button to collapse event detail
