@@ -7,8 +7,10 @@
       When the user views the list of events \
       Then the event elements are collapsed 
    
-  Scenario 2: user can expand an event to see more details
-     Given that user already clicked on show button to reveal event details 
+  Scenario 2: User can expand an event to see its details \
+     Given the list of events is displayed \
+When the user clicks on an event element \
+Then the event element is expanded to show more details
      
   Scenario 3: user can collapse an event to hide event details
      Given that user already clicked on hide button to collapse event detail
