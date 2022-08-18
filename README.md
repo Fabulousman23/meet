@@ -17,7 +17,7 @@ Then the event element is expanded to show more details
 When the user clicks the event element \
 Then the event element is collapsed back to its default position
      
-  User story:  I should beable to click to show or hide events details
+  User story: as a user I should beable to click to show or hide events details
 
 ## Feature: Filter events 
 
