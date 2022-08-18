@@ -12,8 +12,10 @@
 When the user clicks on an event element \
 Then the event element is expanded to show more details
      
-  Scenario 3: user can collapse an event to hide event details
-     Given that user already clicked on hide button to collapse event detail
+  Scenario 3: User can collapse an event to hide its details \
+     Given the event element is expanded \
+When the user clicks the event element \
+Then the event element is collapsed back to its default position
      
   User story:  I should beable to click to show or hide events details
 
