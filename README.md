@@ -20,7 +20,7 @@ Then the event element is collapsed back to its default position
   User story: as a user I should beable to click to show or hide events details
 
 ## Feature: Filter events 
-Scenario 1: user sees a dropdown list of suggested locations \
+Scenario 1: user sees a dropdown list of suggested location \
      Given the location dropdown is displayed \
 When the user types a location \
 Then the list of suggestions is displayed
