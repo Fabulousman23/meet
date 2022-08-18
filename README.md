@@ -37,4 +37,4 @@ Then the event element is collapsed back to its default position
   Scenario 1: user sees a pie-chart and a bar-chart by default \
      Given that the main page is opened, and user sees a list of collapsed event detail \
      
-  User story:  I should be able to view data visually
+  User story: as a user I should be able to view data visually 
