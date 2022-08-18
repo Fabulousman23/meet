@@ -18,11 +18,13 @@ service: auth-server
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
+  region: eu-central-1
   runtime: nodejs12.x
+  timeout: 60
 
 # you can overwrite defaults here
 #  stage: dev
@@ -59,6 +61,13 @@ provider:
 #    - include-me-dir/**
 
 functions:
+  getAuthURL:
+    handler: handler.getAuthURL
+    environment:
+      events:
+        - http:
+          path:<your api path>
+          method:<get, post, put, or delete>
   hello:
     handler: handler.hello
 #    The following are a few example events you can configure
