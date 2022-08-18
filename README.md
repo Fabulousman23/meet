@@ -21,10 +21,10 @@ Then the event element is collapsed back to its default position
 
 ## Feature: Filter events 
 
-  Scenario 1: user sees a dropdown list of suggested locations are displayed 
-     Given that user typed a location on the location text field
+  Scenario 1: user sees a dropdown list of suggested locations are displayed \
+     Given that user typed a location on the location text field \
      
-  Scenario 2: user can specify number of events
+  Scenario 2: user can specify number of events \
     Given that user types an integer value to see the desired number of events 
      
   User story: As a user, 
@@ -34,7 +34,7 @@ Then the event element is collapsed back to its default position
 
 ## Feature: Data Visualization 
 
-  Scenario 1: user sees a pie-chart and a bar-chart by default
-     Given that the main page is opened, and user sees a list of collapsed event detail
+  Scenario 1: user sees a pie-chart and a bar-chart by default \
+     Given that the main page is opened, and user sees a list of collapsed event detail \
      
   User story:  I should be able to view data visually
