@@ -20,13 +20,16 @@ Then the event element is collapsed back to its default position
   User story: as a user I should beable to click to show or hide events details
 
 ## Feature: Filter events 
+Scenario 1: user sees a dropdown list of suggested locations \
+     Given the location dropdown is displayed \
+When the user types a location \
+Then the list of suggestions is displayed
 
-  Scenario 1: user sees a dropdown list of suggested locations are displayed \
-     Given that user typed a location on the location text field \
-     
-  Scenario 2: user can specify number of events \
-    Given that user types an integer value to see the desired number of events 
-     
+  Scenario 2: user sees a the specified number of events \
+    Given the number of events textfield is displayed \
+When the user types number \
+Then the specified nubmer of events is displayed
+
   User story: As a user, 
   I should be able to filter events by city 
   so that I can see the list of events that take place in the selected city.
