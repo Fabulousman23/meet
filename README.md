@@ -38,7 +38,9 @@ Then the specified nubmer of events is displayed
 ## Feature: Data Visualization 
 
   Scenario 1: user sees a pie-chart and a bar-chart by default \
-     Given that the main page is opened, and user sees a list of collapsed event detail \
+     Given that the main page is opened  \
+     When user navigates to default page \
+     Then user sees pie-chart and a bar-chart \
      
   User story: as a user I should be able to view data visually 
  
