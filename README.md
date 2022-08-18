@@ -31,7 +31,7 @@ When the user types number \
 Then the specified nubmer of events is displayed
 
   User story: As a user, 
-  I should be able to filter events by city 
+  I should be able to filter events by locations and number of events \
   so that I can see the list of events that take place in the selected city.
     
 
@@ -41,3 +41,4 @@ Then the specified nubmer of events is displayed
      Given that the main page is opened, and user sees a list of collapsed event detail \
      
   User story: as a user I should be able to view data visually 
+ 
