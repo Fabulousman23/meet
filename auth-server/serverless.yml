@@ -20,12 +20,6 @@ service: auth-server
 # Check out our docs for more details
 frameworkVersion: "3"
 
-provider:
-  name: aws
-  region: eu-central-1
-  runtime: nodejs12.x
-  timeout: 60
-
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -60,14 +54,23 @@ provider:
 #    - include-me.js
 #    - include-me-dir/**
 
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-central-1
+  timeout: 60 # optional, in seconds, default is 6
+  environment:
+    CLIENT_ID: ${file(config.json):CLIENT_ID}
+    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
+    PROJECT_ID: ${file(config.json):PROJECT_ID}
+    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 functions:
   getAuthURL:
     handler: handler.getAuthURL
-    environment:
-      events:
-        - http:
-          path:<your api path>
-          method:<get, post, put, or delete>
+    events:
+      - http:
+          path: api/get-auth-url
+          method: get
   hello:
     handler: handler.hello
 #    The following are a few example events you can configure
