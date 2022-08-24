@@ -48,7 +48,7 @@
         const resultLink = document.getElementById("authURL");
         // Replace this with your own endpoint
         const getAuthURL =
-            "YOUR_LAMBDA_GET_AUTH_URL_ENDPOINT";
+            "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&response_type=code&client_id=697898983678-d5mokli8jt0la3kj9p3ha6nv7ahl7b0j.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffabulousman23.github.io%2Fmeet";
 
         getURLElement.onclick = function () {
             fetch(getAuthURL)
@@ -71,7 +71,7 @@
         const getAccessToken = document.getElementById("getToken");
         const accessTokenElement = document.getElementById("accessToken");
         const getToken =
-            "YOUR_LAMBDA_GET_TOKEN_ENDPOINT";
+            "https://oauth2.googleapis.com/token";
 
         getAccessToken.onclick = function () {
             let code = codeValue.value;
