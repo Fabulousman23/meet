@@ -73,7 +73,8 @@ module.exports.getAccessToken = async (event) => {
 
   return new Promise((resolve, reject) => {
     /**
-     *  Exchange authorization code for access token with a “callback” after the exchange, The callback in this case is an arrow function with the results as parameters: “err” and “token.”
+     *  Exchange authorization code for access token with a “callback” after the exchange,
+     *  The callback in this case is an arrow function with the results as parameters: “err” and “token.”
      */
 
     oAuth2Client.getToken(code, (err, token) => {
@@ -84,13 +85,10 @@ module.exports.getAccessToken = async (event) => {
     });
   })
     .then((token) => {
-      // Respond with OAuth token
+      // Respond with OAuth token 
       return {
         statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(token)
+        body: JSON.stringify(token),
       };
     })
     .catch((err) => {
@@ -98,13 +96,11 @@ module.exports.getAccessToken = async (event) => {
       console.error(err);
       return {
         statusCode: 500,
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(err)
+        body: JSON.stringify(err),
       };
     });
 };
+
 
 module.exports.getCalendarEvents = async (event) => {
   const oAuth2Client = new google.auth.oAuth2(
