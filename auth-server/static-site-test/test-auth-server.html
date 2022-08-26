@@ -53,7 +53,7 @@
         const resultLink = document.getElementById("authURL");
         // Replace this with your own endpoint
         const getAuthURL =
-            "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&response_type=code&client_id=697898983678-d5mokli8jt0la3kj9p3ha6nv7ahl7b0j.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffabulousman23.github.io%2Fmeet";
+            "https://jefbey8p1c.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url";
 
         getURLElement.onclick = function () {
             fetch(getAuthURL)
@@ -76,7 +76,7 @@
         const getAccessToken = document.getElementById("getToken");
         const accessTokenElement = document.getElementById("accessToken");
         const getToken =
-            "https://oauth2.googleapis.com/token";
+            "https://jefbey8p1c.execute-api.eu-central-1.amazonaws.com/dev/api/token";
 
         getAccessToken.onclick = function () {
             let code = codeValue.value;
@@ -99,7 +99,7 @@
         // -- STEP 3
         const getEvents = document.getElementById("getEvents");
         const events = document.getElementById("events");
-        const getCalendarEvents = "https://jefbey8p1c.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/{access_token";
+        const getCalendarEvents = "https://jefbey8p1c.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
 
         getEvents.onclick = function () {
             const { access_token } = JSON.parse(accessTokenElement.innerText);
