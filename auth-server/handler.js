@@ -88,6 +88,9 @@ module.exports.getAccessToken = async (event) => {
       // Respond with OAuth token 
       return {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify(token),
       };
     })
@@ -96,6 +99,9 @@ module.exports.getAccessToken = async (event) => {
       console.error(err);
       return {
         statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        },
         body: JSON.stringify(err),
       };
     });
@@ -109,7 +115,7 @@ module.exports.getCalendarEvents = async (event) => {
     redirect_uris[0]
   );
   // Decode authorization code exctracted from URL query
-  const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
+  const access_token = encodeURIComponent(`${event.pathParameters.access_token}`);
 
   oAuth2Client.setCredentials({ access_token });
 
