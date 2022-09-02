@@ -11,6 +11,11 @@ class CitySearch extends Component {
         const value = event.target.value;
         this.setState({ query: value });
     }
+    handleItemClicked = (suggestion) => {
+        this.setState({
+            query: suggestion
+        });
+    }
 
     render() {
         return (
