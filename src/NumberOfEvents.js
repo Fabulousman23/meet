@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 
+
 class NumberOfEvents extends Component {
     handleInputChanged = (event) => {
         if (event.target.value <= 0 || event.target.value > 32) {
@@ -31,7 +32,6 @@ class NumberOfEvents extends Component {
         return (
             <div className="number-of-events">
                 <p className="input-label">Number of Events:</p>
-                <ErrorAlert text={this.state.errorText} />
                 <input id="render-number" type="number" className="render-number" value={renderNumber} onChange={this.handleInputChanged}></input>
             </div>
         );
