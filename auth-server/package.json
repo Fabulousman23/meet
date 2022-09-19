@@ -10,5 +10,8 @@
   "description": "",
   "dependencies": {
     "googleapis": "^59.0.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0"
   }
 }
