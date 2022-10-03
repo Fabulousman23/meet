@@ -1,47 +1,60 @@
+import React from 'react';
+import { mount } from 'enzyme';
+import App from '../App';
+import { mockData } from '../mock-data';
 import { loadFeature, defineFeature } from 'jest-cucumber';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
-    test('An event element is collapsed by default.', ({ given, when, then }) => {
-        given('A collapsed event element containing events is loaded on the page.', () => {
-
+    test('By default the events details are collapsed', ({ given, and, when, then }) => {
+        given('the list of events have been loaded', () => {
         });
-
-        when('The user opens the app and performs no action.', () => {
-
+        let AppWrapper;
+        and('app loaded', () => {
+            AppWrapper = mount(<App />)
         });
-
-        then('The event element is collapsed by default.', () => {
-
+        when('the show/hide button is not clicked yet', () => {
+            AppWrapper.update();
+            expect(AppWrapper.find('.EventList')).toHaveLength(1)
         });
-    });
-
-    test('User can expand an event to see its details.', ({ given, when, then }) => {
-        given('The event list and event elements have loaded.', () => {
-
-        });
-
-        when('The user clicks on a  details button in the event element.', () => {
-
-        });
-
-        then('The event element expands to show details about the specific event chosen.', () => {
-
+        then('the event details are collapsed', () => {
+            expect(AppWrapper.find('.event-info')).toHaveLength(50);
         });
     });
-
-    test('User can collapse an event to hide its details.', ({ given, when, then }) => {
-        given('The event element is showing the event details.', () => {
-
+    test('The user can expand to see an events details', ({ given, and, when, then }) => {
+        let AppWrapper;
+        given('the app has been loaded', () => {
+            AppWrapper = mount(<App />)
+        });
+        and('the list of events have been loaded', () => {
+            AppWrapper.update();
+            expect(AppWrapper.find('.event-info')).toHaveLength(mockData.length)
         });
 
-        when('The user clicks on the details button again.', () => {
-
+        when('the user clicks on the show/hide details button', () => {
+            AppWrapper.find('.details-button').at(0).simulate('click');
         });
 
-        then('The event details part of the event elemnt is collapsed.', () => {
-
+        then('the events details are expanded', () => {
+            expect(AppWrapper.find('.event-info')).toHaveLength(50);
         });
     });
-});
+    test('The user can collapse to hide an events details', ({ given, and, when, then }) => {
+        let AppWrapper;
+        given('the app has been loaded', () => {
+            AppWrapper = mount(<App />);
+        });
+        and('the events details are shown/expanded', () => {
+            AppWrapper.update();
+            AppWrapper.find('.details-button').at(0).simulate('click');
+            expect(AppWrapper.find('.event-info')).toHaveLength(50);
+        });
+        when('the user clicks on the show/hide details button', () => {
+            AppWrapper.find('.details-button').at(0).simulate('click');
+        });
+        then('the events details are collapsed', () => {
+            expect(AppWrapper.find('.event-info')).toHaveLength(50);
+        });
+    });
+})
