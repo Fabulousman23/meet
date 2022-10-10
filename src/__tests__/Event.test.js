@@ -1,66 +1,43 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
+import Event from '../Event';
 import { mockData } from '../mock-data';
 
-import Event from '../Event';
-
 describe('<Event /> component', () => {
-    let event;
-    let EventWrapper;
-    beforeAll(() => {
-        event = mockData[0];
-        EventWrapper = shallow(<Event event={event} />);
-    });
+  let EventWrapper;
+  beforeAll(() => {
+    EventWrapper = shallow(<Event event={mockData[1]} />);
+  });
 
-    test('render title in event item', () => {
-        expect(EventWrapper.find('.event-info')).toHaveLength(1);
-    });
+  test('render an event', () => {
+    expect(EventWrapper.find('.event')).toHaveLength(1);
+  });
 
-    test('render info in event item', () => {
-        expect(EventWrapper.find('.event-info')).toHaveLength(1);
-    });
+  test('render location', () => {
+    expect(EventWrapper.find('.location')).toHaveLength(1);
+  });
 
-    test('render show more button in event item', () => {
-        expect(EventWrapper.find('.details-button')).toHaveLength(1);
-    });
+  test('render start time', () => {
+    expect(EventWrapper.find('.start-date')).toHaveLength(1);
+  });
 
-    test('event title renders correctly', () => {
-        // expect(EventWrapper.find('.event-title').text()).toBe(mockData[0].summary);
-    });
+  test('render details button', () => {
+    expect(EventWrapper.find('.show-details')).toHaveLength(1);
+  });
 
-    test('event info renders correctly', () => {
-        expect(EventWrapper.find('.event-info').text()).toContain(mockData[0].start.dateTime);
-        expect(EventWrapper.find('.event-info').text()).toContain(mockData[0].start.timeZone);
-        expect(EventWrapper.find('.event-info').text()).toContain(mockData[0].location);
+  test('open details panel with details button click', () => {
+    EventWrapper.setState({
+      collapsed: true,
     });
+    EventWrapper.find('.show-details').simulate('click');
+    expect(EventWrapper.state('collapsed')).toBe(false);
+  });
 
-    test('event show/hide details works correctly', () => {
-        expect(EventWrapper.find('.event-details')).toHaveLength(0);
-        EventWrapper.setState({
-            show: true
-        });
-        expect(EventWrapper.find('.event-info').text()).toContain(mockData[0].description);
+  test('hide details panel with details button click', () => {
+    EventWrapper.setState({
+      collapsed: false,
     });
-
-    test('event info begins hidden', () => {
-        EventWrapper = EventWrapper = shallow(<Event event={event} />);
-        // expect(EventWrapper.state('show')).toBe(false);
-    });
-
-    test('when details hidden, clicking details button reveals details', () => {
-        EventWrapper.setState({
-            show: false
-        });
-        EventWrapper.find('.details-button').simulate('click');
-        expect(EventWrapper.state('show')).toEqual(false);
-    });
-
-    test('when details shown, clicking details button hides details', () => {
-        EventWrapper.setState({
-            show: true
-        });
-        EventWrapper.find('.details-button').simulate('click');
-        // expect(EventWrapper.state('show')).toEqual(false);
-    });
+    EventWrapper.find('.hide-details').simulate('click');
+    expect(EventWrapper.state('collapsed')).toBe(true);
+  });
 });
