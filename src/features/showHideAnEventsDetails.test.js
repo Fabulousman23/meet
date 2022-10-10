@@ -33,6 +33,7 @@ defineFeature(feature, test => {
         });
 
         when('the user clicks on the show/hide details button', () => {
+            AppWrapper.update();
             AppWrapper.find('.details-button').at(0).simulate('click');
         });
 
