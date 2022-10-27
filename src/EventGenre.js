@@ -15,7 +15,7 @@ const getData = (events = []) => {
 };
 
 const EventGenre = ({ events }) => {
-    const colors = ['#e3fdfd', '#cbf1f5', '#a6e3e9', '#71c9ce', '#30e3ca']
+    const colors = ['#4751de', '#586e70', '#a6e3e9', '#71c9ce', '#30e3ca']
     const data = getData(events);
 
     return (
