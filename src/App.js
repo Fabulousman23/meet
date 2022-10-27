@@ -89,9 +89,9 @@ class App extends Component {
             top: 20, right: 20, bottom: 20, left: 20,
           }}
         >
-          <CartesianGrid stroke="white" />
-          <XAxis type="category" dataKey="city" name="city" stroke="white" />
-          <YAxis type="number" dataKey="number" name="number of events" stroke="white" allowDecimals={false} />
+          <CartesianGrid />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Scatter data={this.getData()} fill="#08d9d6" />
         </ScatterChart>
