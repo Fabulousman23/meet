@@ -70,31 +70,16 @@ class App extends Component {
   };
 
   render() {
-    const { locations, numberOfEvents } = this.state;
     return (
       <div className="App">
-        <h1>Meet App</h1>
-        <h4>Choose your nearest city</h4>
-        <CitySearch updateEvents={this.updateEvents} locations={locations} />
         <NumberOfEvents
-          updateEvents={this.updateEvents}
-          numberOfEvents={numberOfEvents}
+          numberOfEvents={this.state.numberOfEvents}
+          updateNumberOfEvents={this.updateNumberOfEvents}
         />
-        <h4>Events in each city</h4>
-
-        <ScatterChart
-          width={400}
-          height={400}
-          margin={{
-            top: 20, right: 20, bottom: 20, left: 20,
-          }}
-        >
-          <CartesianGrid />
-          <XAxis type="category" dataKey="city" name="city" stroke="white" />
-          <YAxis type="number" dataKey="number" name="number of events" stroke="white" allowDecimals={false} />
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter data={this.data()} fill="#08d9d6" />
-        </ScatterChart>
+        <CitySearch
+          locations={this.state.locations}
+          updateEvents={this.updateEvents}
+        />
         <EventList events={this.state.events} />
       </div>
     );
